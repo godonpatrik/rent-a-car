@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -37,28 +38,22 @@ public class Car {
     private Integer id;
     
     @Column
-    @NotNull
-    private int plateNum;
+    private String plateNum;
     
     @Column
-    @NotNull
     private int yearOfMake;
     
     @Column
-    @NotNull
     private int km;
     
     @Column
-    @NotNull
-    private int color;
+    private String color;
     
     @Column
-    @NotNull
-    private Date startOfParking;
+    private String startOfParking;
     
     @Column
-    @NotNull
-    private Date endOfParking;
+    private String endOfParking;
     
     @Column
     @CreationTimestamp
@@ -66,5 +61,5 @@ public class Car {
 
     @Column
     @UpdateTimestamp
-    private LocalDateTime updated_at; 
+    private LocalDateTime updated_at;
 }
