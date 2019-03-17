@@ -6,12 +6,13 @@
 package hu.elte.CarRental.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -35,13 +36,16 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     
-    @Column
+    @Column(name="FULL_NAME")
+    @NotNull
     private String fullName;
     
-    @Column
+    @Column(name="ID_CARD_NUMBER")
+    @NotNull
     private int idCardNumber;
     
-    @Column
+    @Column(name="BANK_ACCOUNT_NUMBER")
+    @NotNull
     private String bankAccountNumber;
     
     @Column
@@ -50,5 +54,8 @@ public class Person {
 
     @Column
     @UpdateTimestamp
-    private LocalDateTime updated_at; 
+    private LocalDateTime updated_at;
+    
+    @OneToMany(mappedBy = "person")
+    private List<Car> cars;
 }

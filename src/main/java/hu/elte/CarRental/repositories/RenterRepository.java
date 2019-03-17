@@ -17,6 +17,6 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface RentalRepository extends CrudRepository<Renter, Integer> {
+public interface RenterRepository extends CrudRepository<Renter, Integer> {
     Optional<Renter> findByFullName(String fullName);
 }
