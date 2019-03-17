@@ -10,12 +10,13 @@ package hu.elte.CarRental.repositories;
  *
  * @author Sass Endre
  */
-import hu.elte.CarRental.entities.Renter;
+import hu.elte.CarRental.entities.Person;
 import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface RentalRepository extends CrudRepository<User, Long> {
+public interface PersonRepository extends CrudRepository<User, Long> {
     Optional<User> findByUserName(String fullName);
 }
+
