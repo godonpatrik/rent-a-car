@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package hu.elte.CarRental.entities;
 
 import javax.persistence.Column;
@@ -31,11 +32,11 @@ public class User {
     
     @Column(name="USER_NAME", nullable = false)
     private String userName;
+        
+    @Column(columnDefinition="varchar(200) default ''")
+    private String password="";
     
-    @Column(nullable = false)
-    private String password;
-    
-    @Column(nullable = false)
+    @Column(name="enabled", nullable = false)
     private boolean enabled;
             
 }

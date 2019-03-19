@@ -5,12 +5,19 @@
  */
 package hu.elte.CarRental.controllers;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 /**
  *
  * @author Patrik
  */
 
 // TODO: this class should implement the register and login methods
+@CrossOrigin
+@RestController
+@RequestMapping("/users")
 public class UserController {
-    
+
 }
