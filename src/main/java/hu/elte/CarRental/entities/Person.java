@@ -48,7 +48,7 @@ public class Person {
     @NotNull
     private String bankAccountNumber;
     
-    @Column
+    @Column(updatable = false)
     @CreationTimestamp
     private LocalDateTime created_at;
 

@@ -68,7 +68,7 @@ public class Car {
     @NotNull
     private String endOfParking;
     
-    @Column
+    @Column(updatable = false)
     @CreationTimestamp
     private LocalDateTime created_at;
 

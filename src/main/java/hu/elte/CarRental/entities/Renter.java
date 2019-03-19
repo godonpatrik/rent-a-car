@@ -58,7 +58,7 @@ public class Renter {
     @NotNull
     private String endOfRent;
     
-    @Column
+    @Column(updatable = false)
     @CreationTimestamp
     private LocalDateTime created_at;
 
