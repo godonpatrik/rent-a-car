@@ -80,4 +80,9 @@ public class CarController {
             return ResponseEntity.notFound().build();
         }
     }
+            
+    @GetMapping("/avaliable")
+    public ResponseEntity<Iterable<Car>> getAvaliable() {
+        return ResponseEntity.ok(carRepository.findByIsAvaliable(true));
+    }        
 }

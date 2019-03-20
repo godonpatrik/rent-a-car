@@ -18,5 +18,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CarRepository extends CrudRepository<Car, Integer> {
     Optional<Car> findByPlateNum(String plateNum);
+    
+    public Iterable<Car> findByIsAvaliable(boolean isAvaliable);
 }
 
