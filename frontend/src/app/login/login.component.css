@@ -1,0 +1,14 @@
+form{
+ 
+    width: 30%;
+    margin: auto;
+    padding: 150px;
+}
+.mat-form-field {
+    font-size: 1.2em;
+    width:100%;
+   
+}
+button {
+    width: 100%;
+}
