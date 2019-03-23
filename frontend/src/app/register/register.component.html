@@ -1,4 +1,39 @@
-<p>
-  register works!
-</p>
-<router-outlet></router-outlet>
+
+<form [formGroup]="form">
+    <h1>Welcome</h1>
+    <mat-divider></mat-divider>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Fullname" value="" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Username" value="" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput type="password" placeholder="Password" value="" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput type="password" placeholder="Password again" value="" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Mother's name" value="" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput type="text" placeholder="ID number" value="" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Card number" value="" required>
+    </mat-form-field>
+    <button mat-flat-button type="submit" color="primary">Register</button>
+  </form>
+  <router-outlet></router-outlet>

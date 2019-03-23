@@ -1,13 +1,18 @@
-<form>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
   <h1>Welcome</h1>
+  <mat-divider></mat-divider>
   <mat-form-field>
-    <input matInput type="text" placeholder="Username" value="">
+    <input matInput placeholder="Username" formControlName="username">
   </mat-form-field>
   <br>
   <mat-form-field>
-    <input matInput type="password" placeholder="Password" value="">
+    <input matInput placeholder="Password" formControlName="password" required
+      [type]="hidePassword ? 'password' : 'text'">
+    <mat-icon matSuffix (click)="hidePassword = !hidePassword">{{hidePassword ? 'visibility_off' : 'visibility'}}
+    </mat-icon>
+    <mat-error *ngIf="password.invalid">Password is required</mat-error>
   </mat-form-field>
- 
+
   <button mat-flat-button type="submit" color="primary">Login</button>
 </form>
 <router-outlet></router-outlet>
