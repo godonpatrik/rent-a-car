@@ -9,13 +9,22 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AddCarComponent } from './add-car/add-car.component';
+import { AddRentComponent } from './add-rent/add-rent.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AddPersonComponent } from './add-person/add-person.component';
+import { CarEditComponent } from './edit-car/edit-car.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AddCarComponent,
+    AddRentComponent,
+    AddPersonComponent,
+    CarEditComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +43,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatDatepickerModule,
     MatNativeDateModule,
     MatMenuModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

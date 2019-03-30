@@ -3,22 +3,31 @@
     <mat-icon>local_taxi</mat-icon>
     Rent a car
   </button>
-  <button mat-button routerLink="/login">
-    <mat-icon>person</mat-icon>
-  Login
-  </button>
-  <button mat-button routerLink="/register">
-    <mat-icon>people</mat-icon>
-    Register
-  </button>
 
+  <div *ngIf="authService.isLoggedIn">
+    <button mat-button routerLink="/addPerson">
+      <mat-icon>add</mat-icon>
+      Add new person
+    </button>
+    <button mat-button routerLink="/addCar">
+      <mat-icon>add</mat-icon>
+      Add new car
+    </button>
+    <button mat-button routerLink="/addRent">
+      <mat-icon>add</mat-icon>
+      Add new rent
+    </button>
+    <button mat-button (click)="logout()">Logout</button>
+  </div>
+  <div *ngIf="!authService.isLoggedIn">
+    <button mat-button routerLink="/login"><mat-icon>people</mat-icon>Login</button>
+    <button mat-button routerLink="/register"><mat-icon>people</mat-icon>Register</button>
+  </div>
 
   <mat-menu #appMenu="matMenu">
     <button mat-menu-item>Settings</button>
     <button mat-menu-item>Help</button>
   </mat-menu>
-
-
 
 </mat-toolbar>
 <router-outlet></router-outlet>
