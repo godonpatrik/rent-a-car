@@ -3,6 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { AddCarComponent } from './add-car/add-car.component';
+import { AddRentComponent } from './add-rent/add-rent.component';
+import { AddPersonComponent } from './add-person/add-person.component';
+import { AuthGuard } from './auth.guard';
+import { CarEditComponent } from './edit-car/edit-car.component';
 
 const routes: Routes = [
   {
@@ -21,6 +26,29 @@ const routes: Routes = [
     path: 'register',
     component: RegisterComponent
   },
+  {
+    path: 'addCar',
+    component: AddCarComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'addRent',
+    component: AddRentComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'addPerson',
+    component: AddPersonComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'cars/:id/edit',
+    component: CarEditComponent,
+    canActivate: [AuthGuard],
+    data: {
+      roles: ['ROLE_ADMIN']
+    }
+  }
 ];
 
 @NgModule({

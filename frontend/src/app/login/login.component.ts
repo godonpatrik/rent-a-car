@@ -4,7 +4,7 @@ import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'login',
+  selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -21,17 +21,26 @@ export class LoginComponent implements OnInit {
   get password() { return this.form.get('password'); }
 
   constructor(
-
     private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router) {
 
-
-  ) {
   }
 
   ngOnInit() {
   }
 
   async onSubmit() {
-
+    try {
+      await this.authService.login(this.username.value, this.password.value);
+      if (this.authService.redirectUrl) {
+        this.router.navigate([this.authService.redirectUrl]);
+      } else {
+        this.router.navigate(['/']);
+      }
+    }
+    catch(e) {
+      this.message = 'Cannot log in!'
+    }
   }
 }

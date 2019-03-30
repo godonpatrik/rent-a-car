@@ -1,0 +1,55 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <h1>Adding new car</h1>
+  <mat-form-field>
+    <input matInput type="text" formControlName="plateNum" placeholder="Plate number" value="" required>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput type="number" formControlName="yearOfMake" placeholder="Year of make" value="" required>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput type="number" formControlName="km" placeholder="Km" value="" required>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput type="text" formControlName="color" placeholder="Color" value="" required>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput type="text" formControlName="startOfParking" placeholder="Start of parking" value="" required>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput type="text" formControlName="endOfParking" placeholder="End of parking" value="" required>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Choose owner</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let person of persons" [value]="person.fullName">
+        {{person.fullName}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div>
+    <button mat-flat-button type="submit" color="primary">Add car</button>
+  </div>
+  {{form.value | json}}
+</form>
+
+<mat-nav-list>
+    <a mat-list-item
+      *ngFor="let car of cars"
+      [routerLink]="['/cars', car.id, 'edit']"
+      (click)="selectedCar = car"
+      [class.selected]="car === selectedCar"
+    >
+      <h3 matLine>Plate number: {{car.plateNum}}</h3>
+      <h3 matLine>Distance travelled: {{car.km}} km</h3>
+      <h3 matLine>Year of make: {{car.yearOfMake}}</h3>
+      <h3 matLine>Color: {{car.color}}</h3>
+      <h3 matLine>Avaliable: <mat-icon>{{ car.avaliable === true ? 'done' : 'clear' }}</mat-icon> </h3>
+      <h3 matLine>Start of parking: {{car.startOfParking}}</h3>
+      <h3 matLine>End of parking: {{car.endOfParking}}</h3>
+    </a>
+</mat-nav-list>
