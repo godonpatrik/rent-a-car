@@ -1,0 +1,21 @@
+<h1>Car details</h1>
+
+<dl *ngIf="car">
+  <dt>Plate number: {{car.plateNum}} </dt>
+  <br>
+  <dt>Distance travelled: {{car.km}}</dt>
+  <br>
+  <dt>Year of make: {{car.yearOfMake}}</dt>
+  <br>
+  <dt>Color: {{car.color}}</dt>
+  <br>
+  <dt>Avaliable: <mat-icon>{{ car.avaliable === true ? 'done' : 'clear' }}</mat-icon></dt>
+  <br>
+  <dt>Start of parking: {{car.startOfParking}}</dt>
+  <br>
+  <dt>End of parking: {{car.endOfParking}}</dt>
+</dl>
+
+<p>
+<a mat-flat-button color="primary" [routerLink]="['/cars', car.id, 'edit']">Edit</a>
+</p>

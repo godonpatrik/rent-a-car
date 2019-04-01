@@ -1,8 +1,8 @@
 export class Car {
     id: number = null;
     plateNum = '';
-    yearOfMake: number = 0;
-    km: number = 0;
+    yearOfMake: number;
+    km: number;
     color = '';
     avaliable = true;
     startOfParking = '';

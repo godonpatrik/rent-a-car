@@ -1,9 +1,9 @@
-import { Component, OnInit, EventEmitter, Output, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input, OnChanges, ViewChild } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Car } from '../Car';
-import { HttpClient } from '@angular/common/http';
 import { CarService } from './add-car.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { MatSelect } from '@angular/material';
 
 @Component({
   selector: 'app-car-form',
@@ -13,43 +13,45 @@ import { Router } from '@angular/router';
 export class AddCarComponent implements OnInit, OnChanges {
 
   persons = [];
-  cars = [];
-
-  form = this.fb.group({
+  
+  carForm = this.fb.group({
     plateNum: ['', [Validators.required]],
     yearOfMake: ['', [Validators.required]],
     km: ['', [Validators.required]],
     color: ['', [Validators.required]],
     startOfParking: ['', [Validators.required]],
     endOfParking: ['', [Validators.required]],
+    personId: ['', [Validators.required]]
   });
+
+  @ViewChild(MatSelect)selectComponent:MatSelect;
 
   @Input() car: Car;
 
   @Output() save = new EventEmitter<Car>();
 
-  get plateNum() { return this.form.get('plateNum'); }
-  get yearOfMake() { return this.form.get('yearOfMake'); }
-  get km() { return this.form.get('km'); }
-  get color() { return this.form.get('color'); }
-  get startOfParking() { return this.form.get('startOfParking'); }
-  get endOfParking() { return this.form.get('endOfParking'); }
+  get plateNum() { return this.carForm.get('plateNum'); }
+  get yearOfMake() { return this.carForm.get('yearOfMake'); }
+  get km() { return this.carForm.get('km'); }
+  get color() { return this.carForm.get('color'); }
+  get startOfParking() { return this.carForm.get('startOfParking'); }
+  get endOfParking() { return this.carForm.get('endOfParking'); }
+  get personId() { return this.carForm.get('personId'); }
 
-  constructor(private http: HttpClient, private fb: FormBuilder, private carService: CarService, private router: Router) { }
+  constructor(private fb: FormBuilder, private carService: CarService, private route: ActivatedRoute) { }
 
   async ngOnInit() {
     this.persons = await this.carService.getPersons();
-    this.cars = await this.carService.getCars();
   }
 
   ngOnChanges() {
-    this.form.patchValue(this.car);
+    this.carForm.patchValue(this.car);
   }
 
   onSubmit() {
-    //Sima addot egyszerűen sehogy nem fogja fel
-    const emittedCar = Object.assign(new Car(), this.form.value);
-    this.save.emit(emittedCar);
+    this.save.emit(
+      Object.assign(new Car(), this.carForm.value)
+    );
   }
 
 }

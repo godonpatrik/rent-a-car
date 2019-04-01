@@ -1,0 +1,15 @@
+<h1>Cars</h1>
+
+<mat-nav-list>
+  <a mat-list-item
+    *ngFor="let car of cars"
+    [routerLink]="['/cars', car.id]"
+    (click)="selectedCar = car"
+    [class.selected]="car === selectedCar"
+  >
+    <h3 matLine>Plate number: {{car.plateNum}}</h3>
+    <h3 matLine>Distance travelled: {{car.km}} km</h3>
+    <h3 matLine>Year of make: {{car.yearOfMake}}</h3>
+    <mat-icon>build</mat-icon>
+  </a>
+</mat-nav-list>
