@@ -42,5 +42,6 @@ export class LoginComponent implements OnInit {
     catch(e) {
       this.message = 'Cannot log in!'
     }
+    this.router.navigate(['/']);
   }
 }

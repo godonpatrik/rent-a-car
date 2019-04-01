@@ -14,6 +14,8 @@ import { AddRentComponent } from './add-rent/add-rent.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddPersonComponent } from './add-person/add-person.component';
 import { CarEditComponent } from './edit-car/edit-car.component';
+import { ListCarComponent } from './list-car/list-car.component';
+import { DetailsCarComponent } from './details-car/details-car.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { CarEditComponent } from './edit-car/edit-car.component';
     AddCarComponent,
     AddRentComponent,
     AddPersonComponent,
-    CarEditComponent
+    CarEditComponent,
+    ListCarComponent,
+    DetailsCarComponent
   ],
   imports: [
     BrowserModule,

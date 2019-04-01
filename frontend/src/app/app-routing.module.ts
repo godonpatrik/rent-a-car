@@ -8,6 +8,8 @@ import { AddRentComponent } from './add-rent/add-rent.component';
 import { AddPersonComponent } from './add-person/add-person.component';
 import { AuthGuard } from './auth.guard';
 import { CarEditComponent } from './edit-car/edit-car.component';
+import { ListCarComponent } from './list-car/list-car.component';
+import { DetailsCarComponent } from './details-car/details-car.component';
 
 const routes: Routes = [
   {
@@ -28,7 +30,7 @@ const routes: Routes = [
   },
   {
     path: 'addCar',
-    component: AddCarComponent,
+    component: CarEditComponent,
     canActivate: [AuthGuard]
   },
   {
@@ -37,8 +39,18 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'listCars',
+    component: ListCarComponent,
+    canActivate: [AuthGuard]
+  },
+  {
     path: 'addPerson',
     component: AddPersonComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'cars/:id',
+    component: DetailsCarComponent,
     canActivate: [AuthGuard]
   },
   {
