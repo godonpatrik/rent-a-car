@@ -14,7 +14,7 @@ export class CarEditComponent implements OnInit {
 
   id: number = null;
   car: Car = new Car();
-  title = 'Add new car';
+  title = 'Adding new car';
 
   constructor(
     private route: ActivatedRoute,
@@ -29,7 +29,7 @@ export class CarEditComponent implements OnInit {
     if (id) {
       this.id = +id;
       this.car = await this.carService.getCar(this.id);
-      this.title = 'Edit selected car';
+      this.title = 'Editing selected car';
     }
   }
 

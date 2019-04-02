@@ -1,4 +1,5 @@
 <form [formGroup]="carForm" (ngSubmit)="onSubmit()">
+  <mat-divider></mat-divider>
   <mat-form-field>
     <input matInput type="text" formControlName="plateNum" placeholder="Plate number" required>
   </mat-form-field>
@@ -33,4 +34,5 @@
   
 </form>
 {{car | json}}
+<br>
 {{carForm.value | json}}

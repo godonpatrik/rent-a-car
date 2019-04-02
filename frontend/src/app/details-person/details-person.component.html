@@ -1,0 +1,13 @@
+<h1>Person details</h1>
+
+<dl *ngIf="person">
+  <dt>Fullname: {{person.fullName}} </dt>
+  <br>
+  <dt>ID CARD Number: {{person.idCardNumber}}</dt>
+  <br>
+  <dt>BANK Account Number: {{person.bankAccountNumber}}</dt>
+</dl>
+
+<p>
+<a mat-flat-button color="primary" [routerLink]="['/persons', person.id, 'edit']">Edit</a>
+</p>
