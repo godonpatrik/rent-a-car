@@ -1,0 +1,15 @@
+<h1>Persons</h1>
+
+<mat-nav-list>
+  <a mat-list-item
+    *ngFor="let person of persons"
+    [routerLink]="['/persons', person.id]"
+    (click)="selectedPerson = person"
+    [class.selected]="person === selectedPerson"
+  >
+    <h3 matLine>Fullname: {{person.fullName}}</h3>
+    <h3 matLine>ID CARD Number: {{person.idCardNumber}}</h3>
+    <h3 matLine>Bank Account Number: {{person.bankAccountNumber}}</h3>
+    <mat-icon>build</mat-icon>
+  </a>
+</mat-nav-list>

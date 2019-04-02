@@ -10,6 +10,9 @@ import { AuthGuard } from './auth.guard';
 import { CarEditComponent } from './edit-car/edit-car.component';
 import { ListCarComponent } from './list-car/list-car.component';
 import { DetailsCarComponent } from './details-car/details-car.component';
+import { EditPersonComponent } from './edit-person/edit-person.component';
+import { ListPersonComponent } from './list-person/list-person.component';
+import { DetailsPersonComponent } from './details-person/details-person.component';
 
 const routes: Routes = [
   {
@@ -45,12 +48,22 @@ const routes: Routes = [
   },
   {
     path: 'addPerson',
-    component: AddPersonComponent,
+    component: EditPersonComponent,
     canActivate: [AuthGuard],
   },
   {
     path: 'cars/:id',
     component: DetailsCarComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'persons/:id',
+    component: DetailsPersonComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'persons/:id/edit',
+    component: EditPersonComponent,
     canActivate: [AuthGuard]
   },
   {
@@ -60,7 +73,12 @@ const routes: Routes = [
     data: {
       roles: ['ROLE_ADMIN']
     }
-  }
+  },
+  {
+    path:'listPersons',
+    component:ListPersonComponent,
+    canActivate :[AuthGuard]
+  },
 ];
 
 @NgModule({

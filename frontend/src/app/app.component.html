@@ -3,8 +3,9 @@
     <mat-icon>local_taxi</mat-icon>
     Rent a car
   </button>
-
+  
   <div *ngIf="authService.isLoggedIn">
+      <span>|</span>  
     <button mat-button routerLink="/addPerson">
       <mat-icon>add</mat-icon>
       Add new person
@@ -13,6 +14,7 @@
       <mat-icon>list</mat-icon>
       List persons
     </button>
+    <span>|</span>
     <button mat-button routerLink="/addCar">
       <mat-icon>add</mat-icon>
       Add new car
@@ -21,6 +23,7 @@
       <mat-icon>list</mat-icon>
       List cars
     </button>
+    <span>|</span>
     <button mat-button routerLink="/addRent">
       <mat-icon>add</mat-icon>
       Add new rent
@@ -29,17 +32,12 @@
       <mat-icon>list</mat-icon>
       List rents
     </button>
+    <span>|</span>
     <button mat-button (click)="logout()">Logout</button>
   </div>
   <div *ngIf="!authService.isLoggedIn">
     <button mat-button routerLink="/login"><mat-icon>people</mat-icon>Login</button>
     <button mat-button routerLink="/register"><mat-icon>people</mat-icon>Register</button>
   </div>
-
-  <mat-menu #appMenu="matMenu">
-    <button mat-menu-item>Settings</button>
-    <button mat-menu-item>Help</button>
-  </mat-menu>
-
 </mat-toolbar>
 <router-outlet></router-outlet>
