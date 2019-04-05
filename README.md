@@ -1,10 +1,10 @@
 # Autókölcsönző
 
-Ez a projekt egy autókölcsönző applikáció, ami két fő funkciót foglal magába.
+Ez a projekt egy autókölcsönző applikáció, ami két fő funkciót foglal magába. 
 
-A reptér melletti ingyenes parkolóba a felhasználó le tudja adni az autóját, ha hosszabb időre elutazik. 
+Az egyik ilyen funkció, hogy a reptér melletti ingyenes parkolóba a felhasználó le tudja adni az autóját, ha hosszabb időre elutazik. 
 
-Az ő autóját más emberek ki tudják kölcsönözni, és ezért ő pénzt kap. Természetesen a parkoló üzemeltetője bizonyos %-ban részesedik.
+Ezt az autót más emberek ki tudják kölcsönözni.
 
 Előnyei:
 -	Az autó akkumulátora nem merül le, mert az autót használják.
