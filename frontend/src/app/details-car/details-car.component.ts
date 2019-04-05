@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Car } from '../Car';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CarService } from '../add-car/add-car.service';
 
 @Component({
@@ -16,6 +16,7 @@ export class DetailsCarComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private carService: CarService,
+    private router: Router
   ) { }
 
   async ngOnInit() {
@@ -24,6 +25,10 @@ export class DetailsCarComponent implements OnInit {
       this.id = +id;
       this.car = await this.carService.getCar(this.id);
     }
+  }
+
+  navigateToEdit(){
+    this.router.navigate([`/cars/${this.id}/edit`]);
   }
 
 

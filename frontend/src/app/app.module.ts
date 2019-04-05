@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MatToolbarModule, MatIconModule, MatButtonModule, MatListModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatButtonToggleModule, MatCheckboxModule, MatDatepicker, MatDatepickerModule, DateAdapter, MatNativeDateModule, MatMenuModule } from '@angular/material'; 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -53,9 +53,10 @@ import { DetailsPersonComponent } from './details-person/details-person.componen
     MatDatepickerModule,
     MatNativeDateModule,
     MatMenuModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
 })
 export class AppModule { }

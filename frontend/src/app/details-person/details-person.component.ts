@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Person } from '../Person';
 import { PersonService } from '../add-person/add-person.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-details-person',
@@ -16,6 +16,7 @@ export class DetailsPersonComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private personService: PersonService,
+    private router: Router
   ) { }
 
   async ngOnInit() {
@@ -24,6 +25,10 @@ export class DetailsPersonComponent implements OnInit {
       this.id = +id;
       this.person = await this.personService.getPerson(this.id);
     }
+  }
+
+  navigateToEdit(){
+    this.router.navigate([`/persons/${this.id}/edit`]);
   }
 
 }
