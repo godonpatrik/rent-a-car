@@ -46,13 +46,10 @@ export class AddCarComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     this.carForm.patchValue(this.car);
-    console.log(this.carForm);
   }
 
   onSubmit() {
-    console.log(Object.assign(new Car(), this.carForm.value));
-    this.save.emit(
-      
+    this.save.emit( 
       Object.assign(new Car(), this.carForm.value)
     );
   }
