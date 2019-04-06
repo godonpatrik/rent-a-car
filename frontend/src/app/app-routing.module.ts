@@ -11,6 +11,9 @@ import { DetailsCarComponent } from './details-car/details-car.component';
 import { EditPersonComponent } from './edit-person/edit-person.component';
 import { ListPersonComponent } from './list-person/list-person.component';
 import { DetailsPersonComponent } from './details-person/details-person.component';
+import { ListRentComponent } from './list-rent/list-rent.component';
+import { DetailsRentComponent } from './details-rent/details-rent.component';
+import { EditRentComponent } from './edit-rent/edit-rent.component';
 
 const routes: Routes = [
   {
@@ -36,7 +39,7 @@ const routes: Routes = [
   },
   {
     path: 'addRent',
-    component: AddRentComponent,
+    component: EditRentComponent,
     canActivate: [AuthGuard]
   },
   {
@@ -60,8 +63,18 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'rents/:id',
+    component: DetailsRentComponent,
+    canActivate: [AuthGuard]
+  },
+  {
     path: 'persons/:id/edit',
     component: EditPersonComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'rents/:id/edit',
+    component: EditRentComponent,
     canActivate: [AuthGuard]
   },
   {
@@ -75,6 +88,11 @@ const routes: Routes = [
   {
     path:'listPersons',
     component:ListPersonComponent,
+    canActivate :[AuthGuard]
+  },
+  {
+    path:'listRents',
+    component:ListRentComponent,
     canActivate :[AuthGuard]
   },
 ];
