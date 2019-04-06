@@ -1,7 +1,21 @@
-language: java
-jdk:
-- oraclejdk8
-# git strips the wrapper jar file so we have to force its download during the build
-install:
-- mvn -N io.takari:maven:wrapper
-- ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+matrix:
+  include:
+    - language: java
+      jdk:
+        - oraclejdk8
+      # git strips the wrapper jar file so we have to force its download during the build
+      install:
+      - mvn -N io.takari:maven:wrapper
+      - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+    - language: node_js
+      node_js:
+        - '10'
+      addons:
+  	chrome: stable
+      before_install:
+        - cd frontend
+        - npm install -g @angular/cli@7.0.6
+      install:
+        - npm ci
+      script:
+        - ng test --watch=false --browsers=ChromeHeadless
