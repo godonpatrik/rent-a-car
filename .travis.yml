@@ -10,8 +10,6 @@ matrix:
     - language: node_js
       node_js:
         - '10'
-      addons:
-  	chrome: stable
       before_install:
         - cd frontend
         - npm install -g @angular/cli@7.0.6
