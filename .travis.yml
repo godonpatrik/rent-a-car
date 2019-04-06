@@ -11,11 +11,11 @@ matrix:
       node_js:
         - '10'
       addons:
-  	chrome: stable
+        chrome: stable
       before_install:
         - cd frontend
         - npm install -g @angular/cli@7.0.6
       install:
         - npm ci
       script:
-        - ng test --watch=false --browsers=ChromeHeadless
+        - ng test
