@@ -1,0 +1,19 @@
+<h1>Rent details</h1>
+
+<dl *ngIf="rent">
+  <dt>
+      Fullname {{rent.fullName}}
+  </dt>
+  <br>
+  <dt>ID CARD Number {{rent.idCardNumber}}</dt>
+  <br>
+  <dt>BANK ACCOUNT Number {{rent.bankAccountNumber}}</dt>
+  <br>
+  <dt>Start of Rent: {{rent.startOfRent}}</dt>
+  <br>
+  <dt>End of Rent {{rent.endOfRent}}</dt>
+</dl>
+
+<p>
+<a mat-flat-button color="primary" (click)="navigateToEdit()">Edit</a>
+</p>

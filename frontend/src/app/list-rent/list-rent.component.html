@@ -1,0 +1,16 @@
+<h1>Rents</h1>
+
+<mat-nav-list>
+  <a mat-list-item
+    *ngFor="let rent of rents"
+    [routerLink]="['/rents', rent.id]"
+    (click)="selectedRent = rent"
+    [class.selected]="rent === selectedRent"
+  >
+    <h3 matLine>ID CARD Number {{rent.idCardNumber}}</h3>
+    <h3 matLine>BANK ACCOUNT Number {{rent.bankAccountNumber}} </h3>
+    <h3 matLine>Start of Rent: {{rent.startOfRent}}</h3>
+    <h3 matLine>End of Rent {{rent.endOfRent}}</h3>
+    <mat-icon>build</mat-icon>
+  </a>
+</mat-nav-list>
