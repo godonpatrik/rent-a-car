@@ -11,10 +11,15 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 /**
- *
+ *  This class is the UserRepository, which extends CrudRepository.
  * @author Patrik
  */
 @Repository
 public interface UserRepository extends CrudRepository<User, Long> {
+    /**
+     * This method return a User by its username.
+     * @param username
+     * @return 
+     */
     Optional<User> findByUserName(String username);
 }

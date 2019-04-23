@@ -7,7 +7,7 @@ package hu.elte.CarRental.repositories;
  */
 
 /**
- *
+ *  This class is the RenterRepository, which extends CrudRepository.
  * @author Sass Endre
  */
  
@@ -18,5 +18,10 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RenterRepository extends CrudRepository<Renter, Integer> {
+    /**
+     * This method returns a Renter by its full name.
+     * @param fullName
+     * @return 
+     */
     Optional<Renter> findByFullName(String fullName);
 }

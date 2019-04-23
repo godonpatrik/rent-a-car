@@ -17,7 +17,9 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
- *
+ *  This file represents a User entity, with all of its properties.
+ * 
+ * 
  * @author Patrik
  */
 

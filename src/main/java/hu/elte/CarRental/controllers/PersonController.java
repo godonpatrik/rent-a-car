@@ -21,7 +21,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 /**
- *
+ *  This class is the PersonController, which provides 5 end points.
+ * 
  * @author József
  */
 
@@ -33,11 +34,20 @@ public class PersonController {
     @Autowired
     private PersonRepository personRepository;
 
+    /**
+     * This method returns all of the Persons in the database.
+     * @return 
+     */
     @GetMapping("")
     public ResponseEntity<Iterable<Person>> getAll() {
         return ResponseEntity.ok(personRepository.findAll());
     }
 
+    /**
+     * This method returns the Person with the given id.
+     * @param id
+     * @return ResponseEntity
+     */
     @GetMapping("/{id}")
     public ResponseEntity<Person> get(@PathVariable Integer id) {
         Optional<Person> person = personRepository.findById(id);
@@ -47,7 +57,11 @@ public class PersonController {
             return ResponseEntity.notFound().build();
         }
     }
-    
+    /**
+     * This method posts a Person to the database.
+     * @param person
+     * @return ResponseEntity
+     */
     @PostMapping("")
     public ResponseEntity<Person> post(@RequestBody Person person) {
         //User user = authenticatedUser.getUser();
@@ -55,7 +69,12 @@ public class PersonController {
         Person savedPerson = personRepository.save(person);
         return ResponseEntity.ok(savedPerson);
     }
-    
+    /**
+     * This method puts a Person to the database.
+     * @param id
+     * @param person
+     * @return ResponseEntity
+     */
     @PutMapping("/{id}")
     public ResponseEntity<Person> update
             (@PathVariable Integer id,
@@ -68,7 +87,11 @@ public class PersonController {
             return ResponseEntity.notFound().build();
         }
     }
-            
+    /**
+     * This method deletes the Person with the given id.
+     * @param id
+     * @return ResponseEntity
+     */        
     @DeleteMapping("/{id}")
     public ResponseEntity<Person> delete
             (@PathVariable Integer id) {

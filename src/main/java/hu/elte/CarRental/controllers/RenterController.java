@@ -21,7 +21,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 /**
- *
+ *  This class is the RenterController, which provides 5 end points.
+ *   
  * @author József
  */
 
@@ -32,12 +33,21 @@ public class RenterController {
     
     @Autowired
     private RenterRepository renterRepository;
-
+    
+    /**
+     * This method returns all of the Renters in the database.
+     * @return ResponseEntity
+     */
     @GetMapping("")
     public ResponseEntity<Iterable<Renter>> getAll() {
         return ResponseEntity.ok(renterRepository.findAll());
     }
 
+    /**
+     * This method returns the Renter with the given id.
+     * @param id
+     * @return ResponseEntity
+     */
     @GetMapping("/{id}")
     public ResponseEntity<Renter> get(@PathVariable Integer id) {
         Optional<Renter> renter = renterRepository.findById(id);
@@ -48,6 +58,11 @@ public class RenterController {
         }
     }
     
+    /**
+     * This method posts a Renter to the database.
+     * @param renter
+     * @return ResponseEntity
+     */
     @PostMapping("")
     public ResponseEntity<Renter> post(@RequestBody Renter renter) {
         //User user = authenticatedUser.getUser();
@@ -56,6 +71,12 @@ public class RenterController {
         return ResponseEntity.ok(savedRenter);
     }
     
+    /**
+     * This method puts a Renter to the database.
+     * @param id
+     * @param renter
+     * @return ResponseEntity
+     */
     @PutMapping("/{id}")
     public ResponseEntity<Renter> update
             (@PathVariable Integer id,
@@ -68,7 +89,12 @@ public class RenterController {
             return ResponseEntity.notFound().build();
         }
     }
-            
+    
+    /**
+     * This method deletes the Renter with the given id.
+     * @param id
+     * @return ResponseEntity
+     */
     @DeleteMapping("/{id}")
     public ResponseEntity<Renter> delete
             (@PathVariable Integer id) {
