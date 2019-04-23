@@ -19,7 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 /**
- *
+ *  This class is the UserController, which provides two end points.
+ * 
  * @author Patrik
  */
 
@@ -35,6 +36,11 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
     
+    /**
+     * This method is responsible for registering in to the application.
+     * @param user
+     * @return ResponseEntity
+     */
     @PostMapping("register")
     public ResponseEntity<User> register(@RequestBody User user) {
         Optional<User> oUser = userRepository.findByUserName(user.getUserName());
@@ -46,6 +52,11 @@ public class UserController {
         return ResponseEntity.ok(userRepository.save(user));
     }
 
+    /**
+     * This method is responsible for logging in to the application.
+     * @param user
+     * @return ResponseEntity
+     */
     @PostMapping("login")
     public ResponseEntity<User> login(@RequestBody User user) {
         return ResponseEntity.ok(authenticatedUser.getUser());

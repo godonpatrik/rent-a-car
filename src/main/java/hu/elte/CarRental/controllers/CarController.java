@@ -21,7 +21,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 /**
- *
+ *  This class is the RenterController, which provides 6 end points.
+ * 
  * @author József
  */
 
@@ -33,11 +34,19 @@ public class CarController {
     @Autowired
     private CarRepository carRepository;
 
+    /**
+     * This method returns all of the Cars in the database.
+     * @return 
+     */
     @GetMapping("")
     public ResponseEntity<Iterable<Car>> getAll() {
         return ResponseEntity.ok(carRepository.findAll());
     }
-
+    /**
+     * This method returns the Car with the given id.
+     * @param id
+     * @return ResponseEntity
+     */
     @GetMapping("/{id}")
     public ResponseEntity<Car> get(@PathVariable Integer id) {
         Optional<Car> car = carRepository.findById(id);
@@ -47,7 +56,11 @@ public class CarController {
             return ResponseEntity.notFound().build();
         }
     }
-    
+    /**
+     * This method posts a Car to the database.
+     * @param car
+     * @return ResponseEntity
+     */
     @PostMapping("")
     public ResponseEntity<Car> post(@RequestBody Car car) {
         //User user = authenticatedUser.getUser();
@@ -55,7 +68,12 @@ public class CarController {
         Car savedCar = carRepository.save(car);
         return ResponseEntity.ok(savedCar);
     }
-    
+    /**
+     * This method puts a Car to the database.
+     * @param id
+     * @param car
+     * @return ResponseEntity
+     */
     @PutMapping("/{id}")
     public ResponseEntity<Car> update
             (@PathVariable Integer id,
@@ -68,7 +86,11 @@ public class CarController {
             return ResponseEntity.notFound().build();
         }
     }
-            
+    /**
+     * This method deletes the Car with the given id.
+     * @param id
+     * @return ResponseEntity
+     */        
     @DeleteMapping("/{id}")
     public ResponseEntity<Car> delete
             (@PathVariable Integer id) {
@@ -80,7 +102,10 @@ public class CarController {
             return ResponseEntity.notFound().build();
         }
     }
-            
+    /**
+     * This method returns all the avaliable cars.
+     * @return ResponseEntity
+     */       
     @GetMapping("/avaliable")
     public ResponseEntity<Iterable<Car>> getAvaliable() {
         return ResponseEntity.ok(carRepository.findByIsAvaliable(true));

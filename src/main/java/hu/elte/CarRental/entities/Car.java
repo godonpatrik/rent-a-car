@@ -25,7 +25,9 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 /**
- *
+ *  This file represents a Car entity, with all of its properties.
+ * 
+ * 
  * @author Patrik
  */
 

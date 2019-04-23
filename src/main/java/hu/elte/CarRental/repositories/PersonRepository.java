@@ -7,7 +7,7 @@ package hu.elte.CarRental.repositories;
  */
 
 /**
- *
+ *  This class is the PersonRepository, which extends CrudRepository.
  * @author Sass Endre
  */
  
@@ -18,6 +18,11 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PersonRepository extends CrudRepository<Person, Integer> {
+    /**
+     * This method returns a Person by its full name.
+     * @param fullName
+     * @return 
+     */
     Optional<Person> findByFullName(String fullName);
 }
 

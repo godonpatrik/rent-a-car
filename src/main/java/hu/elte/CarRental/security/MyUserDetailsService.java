@@ -32,6 +32,12 @@ public class MyUserDetailsService implements UserDetailsService {
     @Autowired 
     private AuthenticatedUser authenticatedUser;
 
+    /**
+     *
+     * @param username
+     * @return
+     * @throws UsernameNotFoundException
+     */
     @Override
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
