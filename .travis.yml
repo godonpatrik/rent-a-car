@@ -5,3 +5,7 @@ jdk:
 install:
 - mvn -N io.takari:maven:wrapper
 - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+script:
+  - ./mvnw test -B
+after_script:
+  -  javadoc -d "./docs" -sourcepath src/main/java -subpackages .
