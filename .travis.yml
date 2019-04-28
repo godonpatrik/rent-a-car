@@ -1,11 +1,17 @@
 language: java
 jdk:
 - oraclejdk8
+addons:
+  sonarcloud:
+    organization: "godonpatrik-github"
+    token:
+    secure: 160dde6e3b407f2f58da7e7931fe61d49fb8c4f1
 # git strips the wrapper jar file so we have to force its download during the build
 install:
 - mvn -N io.takari:maven:wrapper
 - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 script:
   - ./mvnw test -B
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=godonpatrik_rent-a-car -Dsonar.organization=godonpatrik-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=160dde6e3b407f2f58da7e7931fe61d49fb8c4f1
 after_script:
   -  javadoc -d "./docs" -sourcepath src/main/java -subpackages .
