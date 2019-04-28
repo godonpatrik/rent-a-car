@@ -1,6 +1,11 @@
 language: java
 jdk:
 - oraclejdk8
+addons:
+  sonarcloud:
+    organization: "godonpatrik-github"
+    token:
+    secure: 160dde6e3b407f2f58da7e7931fe61d49fb8c4f1
 # git strips the wrapper jar file so we have to force its download during the build
 install:
 - mvn -N io.takari:maven:wrapper
